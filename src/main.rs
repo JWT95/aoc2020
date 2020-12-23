@@ -30,6 +30,7 @@ fn main() -> Result<()> {
         15 => day_fifteen::day_fifteen()?,
         16 => day_sixteen::day_sixteen()?,
         17 => day_seventeen::day_seventeen()?,
+        18 => day_eighteen::day_eighteen()?,
         _ => unimplemented!(),
     }
 
