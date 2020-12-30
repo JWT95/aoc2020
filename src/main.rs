@@ -35,6 +35,9 @@ fn main() -> Result<()> {
         20 => day_twenty::day_twenty()?,
         21 => day_twenty_one::day_twenty_one()?,
         22 => day_twenty_two::day_twenty_two()?,
+        23 => day_twenty_three::day_twenty_three()?,
+        24 => day_twenty_four::day_twenty_four()?,
+        25 => day_twenty_five::day_twenty_five()?,
         _ => unimplemented!(),
     }
 
