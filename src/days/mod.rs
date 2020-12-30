@@ -17,4 +17,6 @@ pub mod day_thirteen;
 pub mod day_three;
 pub mod day_twelve;
 pub mod day_twenty;
+pub mod day_twenty_one;
+pub mod day_twenty_two;
 pub mod day_two;
