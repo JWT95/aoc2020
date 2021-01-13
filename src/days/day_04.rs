@@ -179,8 +179,8 @@ fn verify_pid(input: &str) -> Result<()> {
     }
 }
 
-pub fn day_four() -> Result<()> {
-    let lines = read_input("input/day_four.txt")?;
+pub fn day_04() -> Result<()> {
+    let lines = read_input("input/day_04.txt")?;
 
     // Strategy: Read. Concat until you hit an enpty line. Turn that into a passport entry.
     let lines: Vec<_> = lines.collect();

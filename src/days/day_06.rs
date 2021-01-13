@@ -4,8 +4,8 @@ use std::collections::HashSet;
 
 type Form = Vec<String>;
 
-pub fn day_six() -> Result<()> {
-    let lines = read_input("input/day_six.txt")?;
+pub fn day_06() -> Result<()> {
+    let lines = read_input("input/day_06.txt")?;
 
     let lines: Vec<_> = lines.collect();
 

@@ -2,8 +2,8 @@ use crate::common::read_input;
 use anyhow::Result;
 use std::collections::HashSet;
 
-pub fn day_twenty_two() -> Result<()> {
-    let input: Vec<String> = read_input("input/day_twenty_two.txt")?.collect();
+pub fn day_22() -> Result<()> {
+    let input: Vec<String> = read_input("input/day_22.txt")?.collect();
 
     let player_one_cards: Vec<usize> = input[1..26]
         .iter()

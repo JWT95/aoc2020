@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-pub fn day_twenty_three() -> Result<()> {
+pub fn day_23() -> Result<()> {
     let mut input: Vec<u32> = vec![9, 5, 2, 3, 1, 6, 4, 8, 7];
 
     let mut extra_input: Vec<u32> = (10..1000001).collect();

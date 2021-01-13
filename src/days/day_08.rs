@@ -112,8 +112,8 @@ fn change_value_at(computer: &mut Computer, index: usize) {
     }
 }
 
-pub fn day_eight() -> Result<()> {
-    let instructions: Vec<Instruction> = read_input("input/day_eight.txt")?
+pub fn day_08() -> Result<()> {
+    let instructions: Vec<Instruction> = read_input("input/day_08.txt")?
         .map(|instruction| Instruction::from_str(&instruction).unwrap())
         .collect();
 

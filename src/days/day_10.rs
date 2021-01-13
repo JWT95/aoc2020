@@ -1,8 +1,8 @@
 use crate::common::read_input;
 use anyhow::Result;
 
-pub fn day_ten() -> Result<()> {
-    let mut inputs: Vec<u32> = read_input("input/day_ten.txt")?
+pub fn day_10() -> Result<()> {
+    let mut inputs: Vec<u32> = read_input("input/day_10.txt")?
         .map(|x| x.parse::<u32>().unwrap())
         .collect();
 

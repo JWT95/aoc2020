@@ -51,8 +51,8 @@ fn sums_to_target(numbers: &[u64], index: usize) -> (bool, usize) {
     }
 }
 
-pub fn day_nine() -> Result<()> {
-    let inputs: Vec<u64> = read_input("input/day_nine.txt")?
+pub fn day_09() -> Result<()> {
+    let inputs: Vec<u64> = read_input("input/day_09.txt")?
         .map(|x| x.parse::<u64>().unwrap())
         .collect();
 

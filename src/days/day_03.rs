@@ -14,8 +14,8 @@ fn count_trees(slope: &Slope, right: u8, down: u8) -> usize {
         .count()
 }
 
-pub fn day_three() -> Result<()> {
-    let slope: Slope = read_input("input/day_three.txt")?
+pub fn day_03() -> Result<()> {
+    let slope: Slope = read_input("input/day_03.txt")?
         .map(|line| line.chars().collect())
         .collect();
 

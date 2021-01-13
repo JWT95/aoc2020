@@ -9,8 +9,8 @@ lazy_static::lazy_static! {
         Regex::new(r"^(.+) \(contains (.+)\)\z").unwrap();
 }
 
-pub fn day_twenty_one() -> Result<()> {
-    let foods: Vec<Food> = read_input("input/day_twenty_one.txt")?
+pub fn day_21() -> Result<()> {
+    let foods: Vec<Food> = read_input("input/day_21.txt")?
         .enumerate()
         .map(|(id, x)| Food {
             id,

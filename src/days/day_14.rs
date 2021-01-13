@@ -144,8 +144,8 @@ fn apply_mask_to_address(mask: &String, address: usize) -> impl Iterator<Item = 
         })
 }
 
-pub fn day_fourteen() -> Result<()> {
-    let inputs: Vec<Input> = read_input("input/day_fourteen.txt")?
+pub fn day_14() -> Result<()> {
+    let inputs: Vec<Input> = read_input("input/day_14.txt")?
         .map(|s| Input::from_str(&s).unwrap())
         .collect();
 

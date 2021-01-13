@@ -134,8 +134,8 @@ fn part_two(fields: &[Field], nearby: &Vec<Vec<u32>>, yours: &[u32]) {
     println!("{:?}", answer);
 }
 
-pub fn day_sixteen() -> Result<()> {
-    let lines: Vec<_> = read_input("input/day_sixteen.txt")?.collect();
+pub fn day_16() -> Result<()> {
+    let lines: Vec<_> = read_input("input/day_16.txt")?.collect();
 
     // Find the blank lines
     let blanks: Vec<_> = lines

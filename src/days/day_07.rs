@@ -16,8 +16,8 @@ type Bags = HashMap<String, Subbags>;
 type Bag = (String, Subbags);
 type Subbags = HashMap<String, u32>;
 
-pub fn day_seven() -> Result<()> {
-    let lines: Vec<String> = read_input("input/day_seven.txt")?.collect();
+pub fn day_07() -> Result<()> {
+    let lines: Vec<String> = read_input("input/day_07.txt")?.collect();
 
     let bags: Bags = lines
         .iter()

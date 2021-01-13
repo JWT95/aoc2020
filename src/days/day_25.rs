@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-pub fn day_twenty_five() -> Result<()> {
+pub fn day_25() -> Result<()> {
     let card_pub = 8458505;
     let door_pub = 16050997;
 

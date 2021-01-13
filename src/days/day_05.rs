@@ -35,7 +35,7 @@ impl PlaneSeat {
 }
 
 fn _part_one() -> Result<()> {
-    let max_seat = read_input("input/day_five.txt")?
+    let max_seat = read_input("input/day_05.txt")?
         .map(PlaneSeat::from_string)
         .map(|seat| seat.seat_id())
         .max();
@@ -46,7 +46,7 @@ fn _part_one() -> Result<()> {
 }
 
 fn part_two() -> Result<()> {
-    let mut seat_ids: Vec<_> = read_input("input/day_five.txt")?
+    let mut seat_ids: Vec<_> = read_input("input/day_05.txt")?
         .map(PlaneSeat::from_string)
         .map(|seat| seat.seat_id())
         .collect();
@@ -62,7 +62,7 @@ fn part_two() -> Result<()> {
     Ok(())
 }
 
-pub fn day_five() -> Result<()> {
+pub fn day_05() -> Result<()> {
     part_two()?;
     Ok(())
 }

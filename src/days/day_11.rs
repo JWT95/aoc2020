@@ -5,8 +5,8 @@ const FLOOR: char = '.';
 const OCCUPIED: char = '#';
 const EMPTY: char = 'L';
 
-pub fn day_eleven() -> Result<()> {
-    let inputs: Vec<Vec<char>> = read_input("input/day_eleven.txt")?
+pub fn day_11() -> Result<()> {
+    let inputs: Vec<Vec<char>> = read_input("input/day_11.txt")?
         .map(|x| x.chars().collect())
         .collect();
 

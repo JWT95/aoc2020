@@ -32,8 +32,8 @@ impl Password {
     }
 }
 
-pub fn day_two() -> Result<()> {
-    let passwords = read_input("input/day_two.txt")?.map(|line| {
+pub fn day_02() -> Result<()> {
+    let passwords = read_input("input/day_02.txt")?.map(|line| {
         let captures = REGEX.captures(&line).unwrap();
         Password {
             range: std::ops::Range {

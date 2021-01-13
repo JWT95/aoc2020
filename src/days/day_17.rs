@@ -5,8 +5,8 @@ use std::collections::HashMap;
 const INACTIVE: char = '.';
 const ACTIVE: char = '#';
 
-pub fn day_seventeen() -> Result<()> {
-    let inputs: Vec<Vec<char>> = read_input("input/day_seventeen.txt")?
+pub fn day_17() -> Result<()> {
+    let inputs: Vec<Vec<char>> = read_input("input/day_17.txt")?
         .map(|x| x.chars().collect())
         .collect();
 

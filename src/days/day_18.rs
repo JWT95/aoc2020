@@ -22,8 +22,8 @@ lazy_static::lazy_static! {
         Regex::new(r"(\d+) \+ (\d+)").unwrap();
 }
 
-pub fn day_eighteen() -> Result<()> {
-    let result: u64 = read_input("input/day_eighteen.txt")?
+pub fn day_18() -> Result<()> {
+    let result: u64 = read_input("input/day_18.txt")?
         .map(unbracket)
         .map(|x| x.unwrap())
         .sum();

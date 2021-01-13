@@ -1,7 +1,7 @@
 use anyhow::Result;
 use std::collections::HashMap;
 
-pub fn day_fifteen() -> Result<()> {
+pub fn day_15() -> Result<()> {
     let starting_inputs = vec![14, 1, 17, 0, 3, 20];
 
     let mut numbers_seen = HashMap::new();

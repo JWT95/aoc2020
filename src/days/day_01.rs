@@ -31,8 +31,8 @@ fn part_two(inputs: Vec<i64>) {
     }
 }
 
-pub fn day_one() -> Result<()> {
-    let inputs: Vec<i64> = read_input("input/day_one.txt")?
+pub fn day_01() -> Result<()> {
+    let inputs: Vec<i64> = read_input("input/day_01.txt")?
         .map(|x| x.parse::<i64>().unwrap())
         .collect();
 

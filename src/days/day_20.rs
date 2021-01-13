@@ -5,8 +5,8 @@ use std::collections::{HashMap, HashSet};
 type AllTiles = HashMap<u32, HashSet<Tile>>;
 type Matches = HashMap<u32, HashMap<Tile, HashSet<(Tile, Direction)>>>;
 
-pub fn day_twenty() -> Result<()> {
-    let mut tiles_iter = read_input("input/day_twenty.txt")?;
+pub fn day_20() -> Result<()> {
+    let mut tiles_iter = read_input("input/day_20.txt")?;
 
     let mut tiles = vec![];
 

@@ -33,9 +33,9 @@ type Rules = HashMap<String, String>;
 type ParsedRules = HashMap<String, Rule>;
 type ResolvedRules = HashMap<String, HashSet<String>>;
 
-pub fn day_nineteen() -> Result<()> {
+pub fn day_19() -> Result<()> {
     let (rules, input): (Vec<String>, Vec<String>) =
-        read_input("input/day_nineteen.txt")?.partition(|x| COLON.is_match(x));
+        read_input("input/day_19.txt")?.partition(|x| COLON.is_match(x));
 
     let input = input[1..].to_vec();
 

@@ -3,8 +3,8 @@ use anyhow::Result;
 use multiset::HashMultiSet;
 use std::collections::HashSet;
 
-pub fn day_twenty_four() -> Result<()> {
-    let input: Vec<HashMultiSet<Direction>> = read_input("input/day_twenty_four.txt")?
+pub fn day_24() -> Result<()> {
+    let input: Vec<HashMultiSet<Direction>> = read_input("input/day_24.txt")?
         .map(|x| simplify(convert(x)))
         .collect();
 

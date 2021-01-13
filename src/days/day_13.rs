@@ -1,8 +1,8 @@
 use crate::common::read_input;
 use anyhow::Result;
 
-pub fn day_thirteen() -> Result<()> {
-    let inputs: Vec<String> = read_input("input/day_thirteen.txt")?.collect();
+pub fn day_13() -> Result<()> {
+    let inputs: Vec<String> = read_input("input/day_13.txt")?.collect();
 
     part_two(inputs)
 }

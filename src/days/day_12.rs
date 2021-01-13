@@ -136,8 +136,8 @@ impl Ship {
     }
 }
 
-pub fn day_twelve() -> Result<()> {
-    let instructions: Vec<Instruction> = read_input("input/day_twelve.txt")?
+pub fn day_12() -> Result<()> {
+    let instructions: Vec<Instruction> = read_input("input/day_12.txt")?
         .map(|x| Instruction::from_str(&x).unwrap())
         .collect();
 
