@@ -64,17 +64,17 @@ pub fn day_20() -> Result<()> {
     }
 
     // Check if there are any tiles with max length of 2 for the matches
-    let mut corners: Vec<u64> = vec![];
+    let mut corners: Vec<u32> = vec![];
     for (id, result) in matches.iter() {
         if result.values().map(|v| v.len()).max().unwrap() == 2 {
-            corners.push(*id as u64);
+            corners.push(*id);
         }
     }
 
     println!("{:?}", corners);
 
-    // Pick tile 3517 as the top left corner. Take an orientation with the matches of down and right.
-    let top_left_matches = &matches[&3517];
+    // Pick a tile as the top left corner. Take an orientation with the matches of down and right.
+    let top_left_matches = &matches[&corners[0]];
 
     let (tile, _) = top_left_matches
         .iter()
@@ -143,17 +143,25 @@ pub fn day_20() -> Result<()> {
     };
 
     // Total count
-    let total_count: usize = large_tile
-        .tile
+    let answer: usize = large_tile
+        .all_variants()
         .iter()
-        .map(|x| x.iter().filter(|x| **x == '#').count())
-        .sum();
+        .map(|x| {
+            let total: usize = x
+                .tile
+                .iter()
+                .map(|x| x.iter().filter(|x| **x == '#').count())
+                .sum();
+            total - x.contains_monster() * 15
+        })
+        .min()
+        .unwrap();
 
     // Doesn't always work. Sometimes fails to find any monsters. Perhaps
     // orientation (although I think I checked that).
     // Anyway, when it does find sea monsters it gets the right answer.
     // Also assumes the monsters don't overlap.
-    println!("{:?}", total_count - large_tile.contains_monster() * 15);
+    println!("{:?}", answer);
 
     Ok(())
 }
