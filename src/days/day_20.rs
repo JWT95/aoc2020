@@ -78,7 +78,7 @@ pub fn day_20() -> Result<()> {
 
     let (tile, _) = top_left_matches
         .iter()
-        .filter(|(_tile, set)| {
+        .find(|(_tile, set)| {
             set.iter()
                 .filter(|(_tile, direction)| {
                     *direction == Direction::Down || *direction == Direction::Right
@@ -86,7 +86,6 @@ pub fn day_20() -> Result<()> {
                 .count()
                 == 2
         })
-        .nth(0)
         .unwrap();
 
     let mut tile_grid = vec![];

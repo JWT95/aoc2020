@@ -19,13 +19,7 @@ pub fn day_23() -> Result<()> {
         }
     }
 
-    let target_index = input
-        .iter()
-        .enumerate()
-        .filter(|(_i, x)| **x == 1)
-        .nth(0)
-        .unwrap()
-        .0;
+    let target_index = input.iter().enumerate().find(|(_i, x)| **x == 1).unwrap().0;
 
     println!("Cup one {:?}", input[(target_index + 1) % 1000000]);
     println!("Cup two {:?}", input[(target_index + 2) % 1000000]);
@@ -47,8 +41,7 @@ fn play_turn(mut input: Vec<u32>, current_pos: usize) -> (Vec<u32>, usize) {
         let index = input
             .iter()
             .enumerate()
-            .filter(|(_i, x)| *x == cup)
-            .nth(0)
+            .find(|(_i, x)| *x == cup)
             .unwrap()
             .0;
         input.remove(index);
@@ -72,8 +65,7 @@ fn play_turn(mut input: Vec<u32>, current_pos: usize) -> (Vec<u32>, usize) {
     let target_index = input
         .iter()
         .enumerate()
-        .filter(|(_i, x)| **x == target_cup)
-        .nth(0)
+        .find(|(_i, x)| **x == target_cup)
         .unwrap()
         .0;
 
@@ -86,8 +78,7 @@ fn play_turn(mut input: Vec<u32>, current_pos: usize) -> (Vec<u32>, usize) {
     let index = input
         .iter()
         .enumerate()
-        .filter(|(_i, x)| **x == current_cup)
-        .nth(0)
+        .find(|(_i, x)| **x == current_cup)
         .unwrap()
         .0;
 

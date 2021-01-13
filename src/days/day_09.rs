@@ -25,12 +25,11 @@ fn _part_one(inputs: Vec<u64>) {
 fn part_two(inputs: Vec<u64>) {
     let answer = (0..inputs.len())
         .map(|x| (x, sums_to_target(&inputs, x)))
-        .filter(|(_start_index, (result, _end_index))| *result == true)
+        .find(|(_start_index, (result, _end_index))| *result == true)
         .map(|(start_index, (_result, end_index))| {
             inputs[start_index..(end_index + 1)].iter().min().unwrap()
                 + inputs[start_index..(end_index + 1)].iter().max().unwrap()
         })
-        .nth(0)
         .unwrap();
 
     println!("{:?}", answer);
