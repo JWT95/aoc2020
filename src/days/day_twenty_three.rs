@@ -1,6 +1,4 @@
-use crate::common::read_input;
 use anyhow::Result;
-use std::collections::HashSet;
 
 pub fn day_twenty_three() -> Result<()> {
     let mut input: Vec<u32> = vec![9, 5, 2, 3, 1, 6, 4, 8, 7];
@@ -24,7 +22,7 @@ pub fn day_twenty_three() -> Result<()> {
     let target_index = input
         .iter()
         .enumerate()
-        .filter(|(i, x)| **x == 1)
+        .filter(|(_i, x)| **x == 1)
         .nth(0)
         .unwrap()
         .0;
@@ -49,10 +47,11 @@ fn play_turn(mut input: Vec<u32>, current_pos: usize) -> (Vec<u32>, usize) {
         let index = input
             .iter()
             .enumerate()
-            .filter(|(i, x)| *x == cup)
+            .filter(|(_i, x)| *x == cup)
             .nth(0)
-            .unwrap();
-        input.remove(index.0);
+            .unwrap()
+            .0;
+        input.remove(index);
     }
 
     // Find the destination cup
@@ -73,7 +72,7 @@ fn play_turn(mut input: Vec<u32>, current_pos: usize) -> (Vec<u32>, usize) {
     let target_index = input
         .iter()
         .enumerate()
-        .filter(|(i, x)| **x == target_cup)
+        .filter(|(_i, x)| **x == target_cup)
         .nth(0)
         .unwrap()
         .0;
@@ -87,7 +86,7 @@ fn play_turn(mut input: Vec<u32>, current_pos: usize) -> (Vec<u32>, usize) {
     let index = input
         .iter()
         .enumerate()
-        .filter(|(i, x)| **x == current_cup)
+        .filter(|(_i, x)| **x == current_cup)
         .nth(0)
         .unwrap()
         .0;

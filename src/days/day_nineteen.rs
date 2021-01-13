@@ -148,7 +148,7 @@ impl Rule {
         hashset
     }
 
-    fn resolve(&self, resolved: &ResolvedRules, key: &String) -> HashSet<String> {
+    fn resolve(&self, resolved: &ResolvedRules) -> HashSet<String> {
         let mut hashset = HashSet::new();
 
         match self {
@@ -281,7 +281,7 @@ fn resolve_rules(mut rules: Rules) -> ResolvedRules {
                 .iter()
                 .all(|x| resolved_rules.contains_key(x))
             {
-                let options = rule.resolve(&resolved_rules, &key);
+                let options = rule.resolve(&resolved_rules);
                 resolved_rules.insert(key.clone(), options);
             }
         }

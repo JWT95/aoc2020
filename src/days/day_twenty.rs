@@ -1,7 +1,5 @@
 use crate::common::read_input;
-use anyhow::{Error, Result};
-use ndarray::{arr1, arr2, Array2};
-use regex::Regex;
+use anyhow::Result;
 use std::collections::{HashMap, HashSet};
 
 type AllTiles = HashMap<u32, HashSet<Tile>>;
@@ -12,9 +10,9 @@ pub fn day_twenty() -> Result<()> {
 
     let mut tiles = vec![];
 
-    for i in 0..144 {
+    for _i in 0..144 {
         let mut tile = vec![];
-        for j in 0..11 {
+        for _j in 0..11 {
             tile.push(tiles_iter.nth(0).unwrap());
         }
 
@@ -68,7 +66,7 @@ pub fn day_twenty() -> Result<()> {
     // Check if there are any tiles with max length of 2 for the matches
     let mut corners: Vec<u64> = vec![];
     for (id, result) in matches.iter() {
-        if result.iter().map(|(k, v)| v.len()).max().unwrap() == 2 {
+        if result.values().map(|v| v.len()).max().unwrap() == 2 {
             corners.push(*id as u64);
         }
     }
@@ -78,11 +76,11 @@ pub fn day_twenty() -> Result<()> {
     // Pick tile 3517 as the top left corner. Take an orientation with the matches of down and right.
     let top_left_matches = &matches[&3517];
 
-    let (tile, set) = top_left_matches
+    let (tile, _) = top_left_matches
         .iter()
-        .filter(|(tile, set)| {
+        .filter(|(_tile, set)| {
             set.iter()
-                .filter(|(tile, direction)| {
+                .filter(|(_tile, direction)| {
                     *direction == Direction::Down || *direction == Direction::Right
                 })
                 .count()
@@ -105,8 +103,8 @@ pub fn day_twenty() -> Result<()> {
                     .get(&current_tile)
                     .unwrap()
                     .iter()
-                    .filter(|(tile, direction)| *direction == Direction::Right)
-                    .map(|(tile, direction)| tile)
+                    .filter(|(_tile, direction)| *direction == Direction::Right)
+                    .map(|(tile, _direction)| tile)
                     .cloned()
                     .collect();
 
@@ -126,8 +124,8 @@ pub fn day_twenty() -> Result<()> {
                     .get(row_left)
                     .unwrap()
                     .iter()
-                    .filter(|(tile, direction)| *direction == Direction::Down)
-                    .map(|(tile, direction)| tile)
+                    .filter(|(_tile, direction)| *direction == Direction::Down)
+                    .map(|(tile, _direction)| tile)
                     .cloned()
                     .collect();
 

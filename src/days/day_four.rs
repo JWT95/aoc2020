@@ -6,7 +6,7 @@ macro_rules! make_regex {
     ($x:ident) => {
         lazy_static::lazy_static! {
             pub static ref $x: regex::Regex =
-                Regex::new(&format!(r"{}:([^ ]+)", stringify!($x))).unwrap();
+                Regex::new(&format!(r"{}:([^ ]+)", stringify!($x).to_lowercase())).unwrap();
         }
     };
 }
@@ -32,14 +32,14 @@ lazy_static::lazy_static! {
         Regex::new(r"^\d{9}\z").unwrap();
 }
 
-make_regex!(byr);
-make_regex!(iyr);
-make_regex!(eyr);
-make_regex!(hgt);
-make_regex!(hcl);
-make_regex!(ecl);
-make_regex!(pid);
-make_regex!(cid);
+make_regex!(BYR);
+make_regex!(IYR);
+make_regex!(EYR);
+make_regex!(HGT);
+make_regex!(HCL);
+make_regex!(ECL);
+make_regex!(PID);
+make_regex!(CID);
 
 #[derive(Debug)]
 struct Passport {
@@ -56,14 +56,14 @@ struct Passport {
 impl Passport {
     fn parse_from_string(input: &String) -> Result<Passport> {
         Ok(Passport {
-            byr: byr.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            iyr: iyr.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            eyr: eyr.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            hgt: hgt.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            hcl: hcl.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            ecl: ecl.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            pid: pid.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
-            cid: cid.find(input).map(|x| x.as_str().into()),
+            byr: BYR.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            iyr: IYR.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            eyr: EYR.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            hgt: HGT.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            hcl: HCL.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            ecl: ECL.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            pid: PID.find(input).ok_or(anyhow::anyhow!(""))?.as_str().into(),
+            cid: CID.find(input).map(|x| x.as_str().into()),
         })
     }
 
@@ -82,7 +82,7 @@ impl Passport {
 
 fn verify_byr(input: &str) -> Result<()> {
     // Get capture
-    let inner = byr.captures(input).unwrap().get(1).unwrap();
+    let inner = BYR.captures(input).unwrap().get(1).unwrap();
 
     let year = inner.as_str().parse::<u32>()?;
     if 1920 <= year && year <= 2002 {
@@ -94,7 +94,7 @@ fn verify_byr(input: &str) -> Result<()> {
 
 fn verify_iyr(input: &str) -> Result<()> {
     // Get capture
-    let inner = iyr.captures(input).unwrap().get(1).unwrap();
+    let inner = IYR.captures(input).unwrap().get(1).unwrap();
 
     let year = inner.as_str().parse::<u32>()?;
     if 2010 <= year && year <= 2020 {
@@ -106,7 +106,7 @@ fn verify_iyr(input: &str) -> Result<()> {
 
 fn verify_eyr(input: &str) -> Result<()> {
     // Get capture
-    let inner = eyr.captures(input).unwrap().get(1).unwrap();
+    let inner = EYR.captures(input).unwrap().get(1).unwrap();
 
     let year = inner.as_str().parse::<u32>()?;
     if 2020 <= year && year <= 2030 {
@@ -118,7 +118,7 @@ fn verify_eyr(input: &str) -> Result<()> {
 
 fn verify_hgt(input: &str) -> Result<()> {
     // Get capture
-    let inner = hgt.captures(input).unwrap().get(1).unwrap().as_str();
+    let inner = HGT.captures(input).unwrap().get(1).unwrap().as_str();
 
     // First check it matches one of HEIGHT_CM or HEIGHT_INCH
     if !HEIGHT_CM.is_match(inner) && !HEIGHT_INCH.is_match(inner) {
@@ -148,7 +148,7 @@ fn verify_hgt(input: &str) -> Result<()> {
 
 fn verify_hcl(input: &str) -> Result<()> {
     // Get capture
-    let inner = hcl.captures(input).unwrap().get(1).unwrap().as_str();
+    let inner = HCL.captures(input).unwrap().get(1).unwrap().as_str();
 
     if let true = HAIR_CLR.is_match(inner) {
         return Ok(());
@@ -159,7 +159,7 @@ fn verify_hcl(input: &str) -> Result<()> {
 
 fn verify_ecl(input: &str) -> Result<()> {
     // Get capture
-    let inner = ecl.captures(input).unwrap().get(1).unwrap().as_str();
+    let inner = ECL.captures(input).unwrap().get(1).unwrap().as_str();
 
     if EYE_CLR.is_match(inner) {
         return Ok(());
@@ -170,7 +170,7 @@ fn verify_ecl(input: &str) -> Result<()> {
 
 fn verify_pid(input: &str) -> Result<()> {
     // Get capture
-    let inner = pid.captures(input).unwrap().get(1).unwrap().as_str();
+    let inner = PID.captures(input).unwrap().get(1).unwrap().as_str();
 
     if let true = PID_NO.is_match(inner) {
         return Ok(());
@@ -202,7 +202,7 @@ pub fn day_four() -> Result<()> {
     Ok(())
 }
 
-fn part_one(passports: Vec<String>) {
+fn _part_one(passports: Vec<String>) {
     let valid_passports = passports
         .iter()
         .map(|passport| Passport::parse_from_string(passport))
@@ -229,7 +229,7 @@ fn test_parse_passport() {
     let passport: String =
         "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd\nbyr:1937 iyr:2017 cid:147 hgt:183cm".into();
 
-    assert!(byr.find(&passport).is_some());
+    assert!(BYR.find(&passport).is_some());
 }
 
 #[test]

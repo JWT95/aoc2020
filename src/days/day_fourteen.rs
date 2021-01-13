@@ -1,6 +1,5 @@
 use crate::common::read_input;
 use anyhow::{Error, Result};
-use itertools::Itertools as _;
 use regex::Regex;
 use std::char;
 use std::collections::{HashMap, HashSet};
@@ -46,14 +45,14 @@ struct Computer {
 }
 
 impl Computer {
-    fn apply_input_part_one(&mut self, input: Input) {
+    fn _apply_input_part_one(&mut self, input: Input) {
         match input {
             Input::Mask(mask) => {
                 self.current_mask = mask;
             }
             Input::Mem { address, value } => {
                 self.memory
-                    .insert(address, apply_mask_to_value(&self.current_mask, value));
+                    .insert(address, _apply_mask_to_value(&self.current_mask, value));
             }
         }
     }
@@ -73,7 +72,7 @@ impl Computer {
     }
 }
 
-fn apply_mask_to_value(mask: &String, value: usize) -> usize {
+fn _apply_mask_to_value(mask: &String, value: usize) -> usize {
     let chars = mask.chars().collect::<Vec<_>>();
 
     let value_as_binary = format!("{:b}", value).chars().collect::<Vec<_>>();

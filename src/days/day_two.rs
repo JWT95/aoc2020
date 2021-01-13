@@ -16,7 +16,7 @@ struct Password {
 }
 
 impl Password {
-    fn is_valid_part_one(&self) -> bool {
+    fn _is_valid_part_one(&self) -> bool {
         self.range.contains(
             &self
                 .password

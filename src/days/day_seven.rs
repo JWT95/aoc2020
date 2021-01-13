@@ -29,8 +29,8 @@ pub fn day_seven() -> Result<()> {
     Ok(())
 }
 
-fn part_one(bags: &Bags) {
-    let gold_ancestors = get_ancestors_for_bag(SHINY_GOLD, bags);
+fn _part_one(bags: &Bags) {
+    let gold_ancestors = _get_ancestors_for_bag(SHINY_GOLD, bags);
     println!("{:?}", gold_ancestors.len());
 }
 
@@ -64,15 +64,15 @@ fn parse_subbags_from_string(subbag_string: &str) -> Subbags {
         .collect()
 }
 
-fn get_parents_for_bag(bag: &str, bags: &Bags) -> HashSet<String> {
+fn _get_parents_for_bag(bag: &str, bags: &Bags) -> HashSet<String> {
     bags.iter()
-        .filter(|(name, subbags)| subbags.contains_key(bag))
-        .map(|(name, subbags)| name.clone())
+        .filter(|(_name, subbags)| subbags.contains_key(bag))
+        .map(|(name, _subbags)| name.clone())
         .collect()
 }
 
-fn get_ancestors_for_bag(bag: &str, bags: &Bags) -> HashSet<String> {
-    let mut parents = get_parents_for_bag(bag, bags);
+fn _get_ancestors_for_bag(bag: &str, bags: &Bags) -> HashSet<String> {
+    let mut parents = _get_parents_for_bag(bag, bags);
     let mut ancestors = HashSet::new();
     while !parents.is_empty() {
         ancestors = ancestors.union(&parents).cloned().collect();
@@ -81,7 +81,7 @@ fn get_ancestors_for_bag(bag: &str, bags: &Bags) -> HashSet<String> {
         for parent in tmp_parents {
             // Get parents of parent
             parents = parents
-                .union(&get_parents_for_bag(&parent, bags))
+                .union(&_get_parents_for_bag(&parent, bags))
                 .cloned()
                 .collect();
         }

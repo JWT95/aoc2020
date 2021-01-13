@@ -73,7 +73,7 @@ impl Computer {
                 self.head += 1;
                 self.acc += acc;
             }
-            Instruction::Nop(i32) => {
+            Instruction::Nop(_) => {
                 self.head += 1;
             }
             Instruction::Jmp(jmp) => {

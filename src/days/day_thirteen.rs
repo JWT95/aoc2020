@@ -1,6 +1,5 @@
 use crate::common::read_input;
 use anyhow::Result;
-use std::convert::TryInto;
 
 pub fn day_thirteen() -> Result<()> {
     let inputs: Vec<String> = read_input("input/day_thirteen.txt")?.collect();
@@ -8,7 +7,7 @@ pub fn day_thirteen() -> Result<()> {
     part_two(inputs)
 }
 
-fn part_one(inputs: Vec<String>) -> Result<()> {
+fn _part_one(inputs: Vec<String>) -> Result<()> {
     let arrival_time = inputs[0].parse::<u64>()?;
 
     let buses = inputs[1]
@@ -59,20 +58,20 @@ fn test_crg() {
 }
 
 fn chinese_remainder_gauss(n: Vec<i128>, a: Vec<i128>) -> i128 {
-    let N = n.iter().fold(1, |acc, x| acc * x);
+    let big_n = n.iter().fold(1, |acc, x| acc * x);
     let mut result = 0;
     for i in 0..n.len() {
         let ai = a[i];
         let ni = n[i];
-        let bi = N / ni;
+        let bi = big_n / ni;
         result += ai * bi * invmod(bi, ni);
     }
 
-    return ((result % N) + N) % N;
+    return ((result % big_n) + big_n) % big_n;
 }
 
 fn invmod(a: i128, m: i128) -> i128 {
-    let (x, y) = extended_euclid(a, m);
+    let (x, _) = extended_euclid(a, m);
 
     return x % m;
 }

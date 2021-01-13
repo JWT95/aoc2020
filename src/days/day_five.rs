@@ -34,7 +34,7 @@ impl PlaneSeat {
     }
 }
 
-fn part_one() -> Result<()> {
+fn _part_one() -> Result<()> {
     let max_seat = read_input("input/day_five.txt")?
         .map(PlaneSeat::from_string)
         .map(|seat| seat.seat_id())

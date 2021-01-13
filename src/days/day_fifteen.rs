@@ -6,7 +6,7 @@ pub fn day_fifteen() -> Result<()> {
 
     let mut numbers_seen = HashMap::new();
 
-    let mut last_number = 0;
+    let mut last_number;
     for i in 0..6 {
         last_number = starting_inputs[i];
         numbers_seen.insert(last_number, i);

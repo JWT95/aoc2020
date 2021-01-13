@@ -34,14 +34,14 @@ fn take_turn(input: HashMap<(i32, i32, i32, i32), char>) -> HashMap<(i32, i32, i
     let mut new_input = HashMap::new();
 
     // Work out the outer reaches of the map.
-    let min_x: i32 = *input.keys().map(|(x, y, z, w)| x).min().unwrap();
-    let max_x: i32 = *input.keys().map(|(x, y, z, w)| x).max().unwrap();
-    let min_y: i32 = *input.keys().map(|(x, y, z, w)| y).min().unwrap();
-    let max_y: i32 = *input.keys().map(|(x, y, z, w)| y).max().unwrap();
-    let min_z: i32 = *input.keys().map(|(x, y, z, w)| z).min().unwrap();
-    let max_z: i32 = *input.keys().map(|(x, y, z, w)| z).max().unwrap();
-    let min_w: i32 = *input.keys().map(|(x, y, z, w)| w).min().unwrap();
-    let max_w: i32 = *input.keys().map(|(x, y, z, w)| w).max().unwrap();
+    let min_x: i32 = *input.keys().map(|(x, _y, _z, _w)| x).min().unwrap();
+    let max_x: i32 = *input.keys().map(|(x, _y, _z, _w)| x).max().unwrap();
+    let min_y: i32 = *input.keys().map(|(_x, y, _z, _w)| y).min().unwrap();
+    let max_y: i32 = *input.keys().map(|(_x, y, _z, _w)| y).max().unwrap();
+    let min_z: i32 = *input.keys().map(|(_x, _y, z, _w)| z).min().unwrap();
+    let max_z: i32 = *input.keys().map(|(_x, _y, z, _w)| z).max().unwrap();
+    let min_w: i32 = *input.keys().map(|(_x, _y, _z, w)| w).min().unwrap();
+    let max_w: i32 = *input.keys().map(|(_x, _y, _z, w)| w).max().unwrap();
 
     for x in (min_x - 1)..(max_x + 2) {
         for y in (min_y - 1)..(max_y + 2) {

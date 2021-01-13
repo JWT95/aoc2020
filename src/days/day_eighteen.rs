@@ -46,7 +46,7 @@ fn unbracket(mut input: String) -> Result<u64> {
     resolve_part_two(&input)
 }
 
-fn resolve_part_one(input: &str) -> Result<u64> {
+fn _resolve_part_one(input: &str) -> Result<u64> {
     let inner = input.split(" ");
 
     let mut result = 0;
@@ -86,6 +86,6 @@ fn resolve_part_two(input: &str) -> Result<u64> {
 
     Ok(input
         .split(" ")
-        .map(|x| x.parse::<u64>().unwrap_or_else(|x| 1))
+        .map(|x| x.parse::<u64>().unwrap_or_else(|_| 1))
         .fold(1, |acc, x| x * acc))
 }

@@ -40,7 +40,7 @@ fn part_two(inputs: Vec<u32>) {
     println!("{:?}", ways_to_end[0]);
 }
 
-fn part_one(inputs: Vec<u32>) {
+fn _part_one(inputs: Vec<u32>) {
     let mut ones = 0;
     let mut threes = 0;
     for i in 0..(inputs.len() - 1) {

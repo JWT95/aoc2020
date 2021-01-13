@@ -1,7 +1,7 @@
 use crate::common::read_input;
 use anyhow::Result;
 
-fn part_one(inputs: Vec<i64>) {
+fn _part_one(inputs: Vec<i64>) {
     for x in &inputs {
         for y in &inputs {
             if x + y == 2020 {

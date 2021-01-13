@@ -6,7 +6,7 @@ pub fn day_twenty_five() -> Result<()> {
 
     let mut loop_size = 0;
     let mut start = 1;
-    for i in 0..100000000 {
+    for _i in 0..100000000 {
         if start == door_pub {
             println!("door");
             break;
@@ -33,7 +33,7 @@ pub fn day_twenty_five() -> Result<()> {
 fn transform(subject_number: usize, loop_size: usize) -> usize {
     let mut start = 1;
 
-    for i in 0..loop_size {
+    for _i in 0..loop_size {
         start *= subject_number;
         start = start % 20201227;
     }

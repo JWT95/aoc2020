@@ -59,7 +59,7 @@ fn ticket_is_invalid(ticket: &[u32], fields: &[Field]) -> Vec<u32> {
     invalid_fields
 }
 
-fn part_one(fields: &[Field], nearby: &Vec<Vec<u32>>) {
+fn _part_one(fields: &[Field], nearby: &Vec<Vec<u32>>) {
     let invalid: u32 = nearby
         .iter()
         .map(|x| ticket_is_invalid(&x, fields))
@@ -122,7 +122,7 @@ fn part_two(fields: &[Field], nearby: &Vec<Vec<u32>>, yours: &[u32]) {
             }
         }
 
-        not_done = { possible_fields.values().find(|v| v.len() > 1).is_some() };
+        not_done = possible_fields.values().find(|v| v.len() > 1).is_some();
     }
 
     // Get the first six values from the ticket

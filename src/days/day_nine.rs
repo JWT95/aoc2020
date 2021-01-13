@@ -4,7 +4,7 @@ use itertools::Itertools;
 
 const TARGET: u64 = 21806024;
 
-fn is_valid(previous: &[u64], number: u64) -> bool {
+fn _is_valid(previous: &[u64], number: u64) -> bool {
     previous
         .iter()
         .combinations(2)
@@ -13,9 +13,9 @@ fn is_valid(previous: &[u64], number: u64) -> bool {
         .any(|x| x == number)
 }
 
-fn part_one(inputs: Vec<u64>) {
+fn _part_one(inputs: Vec<u64>) {
     for i in 25..inputs.len() {
-        if !is_valid(&inputs[(i - 25)..i], inputs[i]) {
+        if !_is_valid(&inputs[(i - 25)..i], inputs[i]) {
             println!("{:?}", inputs[i]);
             return;
         }
@@ -25,8 +25,8 @@ fn part_one(inputs: Vec<u64>) {
 fn part_two(inputs: Vec<u64>) {
     let answer = (0..inputs.len())
         .map(|x| (x, sums_to_target(&inputs, x)))
-        .filter(|(start_index, (result, end_index))| *result == true)
-        .map(|(start_index, (result, end_index))| {
+        .filter(|(_start_index, (result, _end_index))| *result == true)
+        .map(|(start_index, (_result, end_index))| {
             inputs[start_index..(end_index + 1)].iter().min().unwrap()
                 + inputs[start_index..(end_index + 1)].iter().max().unwrap()
         })

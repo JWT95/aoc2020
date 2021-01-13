@@ -17,7 +17,7 @@ pub fn day_twenty_two() -> Result<()> {
     println!("{:?}", player_one_cards);
     println!("{:?}", player_two_cards);
 
-    let (left, right) = play_recursive_game(player_one_cards, player_two_cards);
+    let (left, _right) = play_recursive_game(player_one_cards, player_two_cards);
 
     let answer: usize = left
         .iter()
@@ -31,7 +31,7 @@ pub fn day_twenty_two() -> Result<()> {
     Ok(())
 }
 
-fn play_game(mut left: Vec<usize>, mut right: Vec<usize>) -> (Vec<usize>, Vec<usize>) {
+fn _play_game(mut left: Vec<usize>, mut right: Vec<usize>) -> (Vec<usize>, Vec<usize>) {
     while !left.is_empty() && !right.is_empty() {
         let left_card = left.remove(0);
         let right_card = right.remove(0);
@@ -73,7 +73,7 @@ fn play_recursive_game(mut left: Vec<usize>, mut right: Vec<usize>) -> (Vec<usiz
             let (sub_left, sub_right) =
                 (left[0..left_card].to_vec(), right[0..right_card].to_vec());
 
-            let (sub_left, sub_right) = play_recursive_game(sub_left, sub_right);
+            let (sub_left, _sub_right) = play_recursive_game(sub_left, sub_right);
             if sub_left.is_empty() {
                 right.push(right_card);
                 right.push(left_card);

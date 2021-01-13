@@ -45,7 +45,7 @@ pub fn day_twenty_one() -> Result<()> {
     while allergens.values().map(|x| x.len()).max().unwrap() > 1 {
         let ings_to_resolve: Vec<(String, String)> = allergens
             .iter()
-            .filter(|(x, v)| v.len() == 1)
+            .filter(|(_x, v)| v.len() == 1)
             .map(|(x, v)| (x.clone(), v.iter().nth(0).unwrap().clone()))
             .collect();
 

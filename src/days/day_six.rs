@@ -26,7 +26,7 @@ pub fn day_six() -> Result<()> {
     Ok(())
 }
 
-fn part_one(forms: Vec<Form>) {
+fn _part_one(forms: Vec<Form>) {
     let total: usize = forms
         .iter()
         .map(|form| form.join(""))
